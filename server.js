@@ -5,7 +5,7 @@ const dailyItem = require('./routes/dailyItem');
 
 app.use(bodyParser.json());
 
-app.use('/cats', dailyItem);
+app.use('/daily_items', dailyItem);
 
 const port = process.env.PORT || 3000;
 
