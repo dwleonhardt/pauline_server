@@ -1,7 +1,7 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('daily_item').del()
+  return knex('daily_items').del()
     .then(function () {
       // Inserts seed entries
       return knex('daily_items').insert([
@@ -27,5 +27,8 @@ exports.seed = function(knex, Promise) {
           updated_at: new Date ('2014-06-26T14:26:16.000Z')
         }
       ]);
+    })
+    .then(() => {
+      return knex.raw("SELECT setval('daily_items_id_seq', (SELECT MAX(id) FROM daily_items))");
     });
 };
