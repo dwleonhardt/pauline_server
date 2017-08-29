@@ -13,6 +13,7 @@ router.get('/', (req, res, err) => {
   knex.select('daily_items.title', 'daily_items.instructions', 'scheduled_items.start_time', 'scheduled_items.end_time', 'scheduled_items.notes', 'scheduled_items.completed', 'scheduled_items.id as scheduled_item_id')
   .from('daily_items')
   .join('scheduled_items', 'daily_items.id', 'scheduled_items.daily_item_id')
+  .whereBetween('scheduled_items.start_time', ['2016-03-07', '2018-03-11'])
   .then((data) => {
     console.log(data);
     res.send(data);
