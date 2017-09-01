@@ -11,7 +11,6 @@ router.use(bodyParser.json());
 
 router.get('/:day', (req, res, err) => {
   var day = JSON.parse(req.params.day);
-  console.log(day);
   var dayStart = day.start;
   var dayEnd = day.end;
   knex.select('daily_items.title', 'daily_items.instructions', 'scheduled_items.start_time', 'scheduled_items.end_time', 'scheduled_items.notes', 'scheduled_items.completed', 'scheduled_items.id as scheduled_item_id')

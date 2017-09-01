@@ -3,7 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const dailyItem = require('./routes/dailyItem');
 const scheduledItems = require('./routes/scheduledItems');
+const cors = require('cors');
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/daily_items', dailyItem);

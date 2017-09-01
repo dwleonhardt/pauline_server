@@ -12,9 +12,18 @@ router.use(bodyParser.json());
 router.get('/', (req, res, err) => {
   knex('daily_items')
   .then((data) => {
-    console.log(data);
     res.send(data);
   });
+});
+
+router.post('/', (req, res, err) => {
+  console.log(req);
+  knex.insert(req.body)
+  .into('daily_items')
+  .returning('*')
+  .then(data => {
+    res.send(data[0]);
+  })
 });
 
 module.exports = router;

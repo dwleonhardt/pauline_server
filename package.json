@@ -20,6 +20,7 @@
   "homepage": "https://github.com/dwleonhardt/pauline_server#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "express-router": "0.0.1",
     "knex": "^0.13.0",
