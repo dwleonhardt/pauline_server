@@ -113,6 +113,6 @@ exports.seed = function(knex, Promise) {
       ]);
     })
     .then(() => {
-      return knex.raw("SELECT setval('scheduled_items_id_seq', (SELECT MAX(id) FROM daily_items))");
+      return knex.raw("SELECT setval('scheduled_items_id_seq', (SELECT MAX(id) FROM scheduled_items))");
     });
 };
