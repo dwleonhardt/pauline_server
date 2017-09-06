@@ -23,4 +23,13 @@ router.get('/:day', (req, res, err) => {
   });
 });
 
+router.post('/', (req, res, err) => {
+  knex.insert(req.body)
+  .into('scheduled_items')
+  .returning('*')
+  .then(data => {
+    res.send(data[0]);
+  })
+});
+
 module.exports = router;
